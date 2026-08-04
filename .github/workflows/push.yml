@@ -1,0 +1,27 @@
+name: Push to Replicate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  push_to_replicate:
+    name: Push to Replicate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: false
+          docker: true
+
+      - name: Set up Cog
+        uses: replicate/setup-cog@vv1
+        with:
+          replicate_token: ${{ secrets.REPLICATE_CLI_AUTH_TOKEN }}
+
+      - name: Push to Replicate
+        run: |
+          cog push r8.im/samzthedesigner-hue/aeges-core
