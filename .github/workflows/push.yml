@@ -17,7 +17,7 @@ jobs:
           tool-cache: false
 
       - name: Set up Cog
-        uses: replicate/setup-cog@v1
+        uses: replicate/setup-cog@v2
         with:
           token: ${{ secrets.REPLICATE_CLI_AUTH_TOKEN }}
 
