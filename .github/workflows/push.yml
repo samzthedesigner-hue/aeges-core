@@ -18,10 +18,11 @@ jobs:
           docker: true
 
       - name: Set up Cog
-        uses: replicate/setup-cog@vv1
+        uses: replicate/setup-cog@v1
         with:
           replicate_token: ${{ secrets.REPLICATE_CLI_AUTH_TOKEN }}
 
       - name: Push to Replicate
         run: |
           cog push r8.im/samzthedesigner-hue/aeges-core
+          
